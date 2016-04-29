@@ -62,9 +62,8 @@ Route::get('/debug', function() {
 
 });
 
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 # Show login form

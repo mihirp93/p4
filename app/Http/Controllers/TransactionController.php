@@ -15,22 +15,32 @@ class TransactionController extends Controller {
   }
 
   public function getProfile() {
-      echo "Profile page(GET)";
+    # You may access the authenticated user via the Auth facade
+    $user = \Auth::user();
+
+    if($user) {
+        echo 'You are logged in as '. $user->name;
+        echo "<br>";
+        echo 'Your id is '. $user->id;
+    }
+    else {
+      return redirect('/login');
+    }
   }
 
-  public function getAddBook() {
-      echo "Add book page(GET)";
+  public function getAdd() {
+      echo "Add transaction page(GET)";
   }
 
-  public function postAddBook() {
-      echo "Add book page(POST)";
+  public function postAdd() {
+      echo "Add transaction page(POST)";
   }
 
-  public function getEditBook() {
-      echo "Edit book page(GET)";
+  public function getEdit() {
+      echo "Edit transaction page(GET)";
   }
 
-  public function postEditBook() {
-      echo "Edit book page(POST)";
+  public function postEdit() {
+      echo "Edit transaction page(POST)";
   }
 }
