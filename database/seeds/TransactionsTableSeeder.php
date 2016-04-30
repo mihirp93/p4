@@ -18,6 +18,7 @@ class TransactionsTableSeeder extends Seeder
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
           'trans_desc' => 'Purchased The Great Gatsby',
           'trans_amount' => 12.99,
+          'trans_date' => Carbon\Carbon::now()->toDateString(),
           'user_id' => $user_id,
           'type_id' => $type_id,
       ]);
@@ -29,6 +30,7 @@ class TransactionsTableSeeder extends Seeder
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
           'trans_desc' => 'Pocket Money from parents',
           'trans_amount' => 100.00,
+          'trans_date' => Carbon\Carbon::now()->toDateString(),
           'user_id' => $user_id,
           'type_id' => $type_id,
       ]);
@@ -40,6 +42,7 @@ class TransactionsTableSeeder extends Seeder
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
           'trans_desc' => 'Purchased a bicycle',
           'trans_amount' => 79.99,
+          'trans_date' => Carbon\Carbon::now()->toDateString(),
           'user_id' => $user_id,
           'type_id' => $type_id,
       ]);
@@ -51,6 +54,7 @@ class TransactionsTableSeeder extends Seeder
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
           'trans_desc' => 'Cash from grandma',
           'trans_amount' => 60.00,
+          'trans_date' => Carbon\Carbon::now()->toDateString(),
           'user_id' => $user_id,
           'type_id' => $type_id,
       ]);

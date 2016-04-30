@@ -16,6 +16,7 @@ class CreateTransactionsTable extends Migration
              $table->increments('id');
              $table->string('trans_desc');
              $table->decimal('trans_amount',13,2);
+             $table->date('trans_date');
              $table->timestamps();
          });
      }
