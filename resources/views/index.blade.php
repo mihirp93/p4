@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('head')
+   <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+@stop
+
 @section('content')
 <div class="jumbotron">
    <h1>Personal Finance Manager</h1>
@@ -10,8 +14,8 @@
    </p>
    <div class="row">
       @if(count($errors) > 0)
-        <div class="alert alert-danger" role="alert">
-              <ul>
+        <div class="alert alert-danger error" role="alert">
+              <ul class='error_list'>
                 @foreach ($errors->all() as $error)
                   <li>
                     <span class="sr-only">Error:</span>
@@ -27,16 +31,16 @@
             {!! csrf_field() !!}
             <div class="form-group">
                <label class="control-label col-sm-3" for='email'>Email</label>
-               <input type='text' name='email' id='email' value='{{ old('email') }}'>
+               <input class="col-sm-6" type='text' name='email' id='email' value='{{ old('email') }}'>
             </div>
             <div class="form-group">
                <label class="control-label col-sm-3" for='password'>Password</label>
-               <input type='password' name='password' id='password'>
+               <input class="col-sm-6" type='password' name='password' id='password'>
             </div>
             <div class="form-group">
                <div class="col-md-offset-2 col-sm-4">
                   <div class="checkbox">
-                     <label><input type="checkbox" name="remember_me"> Remember me</label>
+                     <label><input type="checkbox" name="remember_me">Remember me</label>
                   </div>
                </div>
             </div>
@@ -47,28 +51,28 @@
             </div>
          </form>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 register">
          <h2>Sign up for an Account</h2>
          <form class="form-horizontal" method='POST' action='/register'>
             {!! csrf_field() !!}
             <div class="form-group">
                <label class="control-label col-sm-4" for='name'>Name</label>
-               <input type='text' name='name' id='name' value='{{ old('name') }}' >
+               <input class="col-sm-6" type='text' name='name' id='name' value='{{ old('name') }}'>
             </div>
             <div class="form-group">
                <label class="control-label col-sm-4" for='email'>Email</label>
-               <input type='text' name='email' id='email' value='{{ old('email') }}'>
+               <input class="col-sm-6" type='text' name='email' id='email'>
             </div>
             <div class="form-group">
                <label class="control-label col-sm-4" for='password'>Password</label>
-               <input type='password' name='password' id='password'>
+               <input class="col-sm-6" type='password' name='password' id='password'>
             </div>
             <div class="form-group">
                <label  class="control-label col-sm-4" for='password_confirmation'>Confirm Password</label>
-               <input type='password' name='password_confirmation' id='password_confirmation'>
+               <input class="col-sm-6" type='password' name='password_confirmation' id='password_confirmation'>
             </div>
             <div class="form-group">
-               <div class="col-sm-offset-4 col-sm-10">
+               <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-info btn-lg">Register</button>
                </div>
             </div>

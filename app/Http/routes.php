@@ -62,35 +62,28 @@ Route::get('/debug', function() {
 
 });
 
-Route::get('/', function () {
-    return view('index');
-});
 
-# Show login form
-Route::get('/login', 'Auth\AuthController@getLogin');
+Route::get('/', ['middleware' => 'guest', function() {
+     return view('index');
+}]);
 
-# Process login form
+# ------------------------------------
+# Authentication
+# ------------------------------------
 Route::post('/login', 'Auth\AuthController@postLogin');
-
+Route::post('/register', 'Auth\AuthController@postRegister');
 # Process logout
 Route::get('/logout', 'Auth\AuthController@logout');
 
-# Show registration form
-Route::get('/register', 'Auth\AuthController@getRegister');
-
-# Process registration form
-Route::post('/register', 'Auth\AuthController@postRegister');
-
-Route::get('/profile', 'TransactionController@getProfile');
-
-Route::get('/add', 'TransactionController@getAdd');
-
-Route::post('/add', 'TransactionController@postAdd');
-
-Route::get('/edit/{id?}', function() {
-  echo "Edit page route(GET)";
-});
-
-Route::post('/edit', function() {
-  echo "Edit page route(POST)";
+# Restricting multiple routes with Middleware
+Route::group(['middleware' => 'auth'], function() {
+   Route::get('/profile', 'TransactionController@getProfile');
+   Route::get('/add', 'TransactionController@getAdd');
+   Route::post('/add', 'TransactionController@postAdd');
+   Route::get('/edit/{id?}', function() {
+     echo "Edit page route(GET)";
+   });
+   Route::post('/edit', function() {
+     echo "Edit page route(POST)";
+   });
 });

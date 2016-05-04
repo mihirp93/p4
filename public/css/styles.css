@@ -1,0 +1,29 @@
+.register {
+   padding-left: 60px;
+   border-left-style: dashed;
+   text-align: center;
+}
+
+.error {
+   text-align:center;
+}
+
+.error_list {
+   list-style-type:none;
+}
+
+.profile_content {
+   padding:50px;
+}
+
+.profile_sidebar {
+   float:left;
+   padding:50px;
+   text-align:center;
+}
+
+.add_form {
+   padding-left: 100px;
+   padding-top: 100px;
+   font-size: 20px;
+}
