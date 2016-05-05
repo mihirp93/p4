@@ -28,54 +28,66 @@
       <div class="col-md-6">
          <h2>Already have an account?</h2>
          <form class="form-horizontal" method='POST' action='/login'>
-            {!! csrf_field() !!}
-            <div class="form-group">
-               <label class="control-label col-sm-3" for='email'>Email</label>
-               <input class="col-sm-6" type='text' name='email' id='email' value='{{ old('email') }}'>
-            </div>
-            <div class="form-group">
-               <label class="control-label col-sm-3" for='password'>Password</label>
-               <input class="col-sm-6" type='password' name='password' id='password'>
-            </div>
-            <div class="form-group">
-               <div class="col-md-offset-2 col-sm-4">
-                  <div class="checkbox">
-                     <label><input type="checkbox" name="remember_me">Remember me</label>
+               {!! csrf_field() !!}
+               <div class="form-group form-group-lg">
+                  <label class="col-sm-3 control-label" for='email'>Email</label>
+                  <div class="col-sm-8">
+                     <input  class="form-control" type='text' name='email' id='email' value='{{ old('email') }}'>
                   </div>
                </div>
-            </div>
-            <div class="form-group">
-               <div class="col-sm-offset-3 col-sm-10">
-                  <button type="submit" class="btn btn-primary btn-lg">Log In</button>
+               <div class="form-group form-group-lg">
+                  <label class="col-sm-3 control-label" for='password'>Password</label>
+                  <div class="col-sm-8">
+                     <input  class="form-control" type='password' name='password' id='password'>
+                  </div>
                </div>
-            </div>
+               <div class="form-group">
+                  <div class="col-md-offset-3 col-sm-4">
+                     <div class="checkbox">
+                        <label><input type="checkbox" name="remember_me">Remember me</label>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-10">
+                     <button type="submit" class="btn btn-primary btn-lg">Log In</button>
+                  </div>
+               </div>
          </form>
       </div>
       <div class="col-md-6 register">
          <h2>Sign up for an Account</h2>
          <form class="form-horizontal" method='POST' action='/register'>
-            {!! csrf_field() !!}
-            <div class="form-group">
-               <label class="control-label col-sm-4" for='name'>Name</label>
-               <input class="col-sm-6" type='text' name='name' id='name' value='{{ old('name') }}'>
-            </div>
-            <div class="form-group">
-               <label class="control-label col-sm-4" for='email'>Email</label>
-               <input class="col-sm-6" type='text' name='email' id='email'>
-            </div>
-            <div class="form-group">
-               <label class="control-label col-sm-4" for='password'>Password</label>
-               <input class="col-sm-6" type='password' name='password' id='password'>
-            </div>
-            <div class="form-group">
-               <label  class="control-label col-sm-4" for='password_confirmation'>Confirm Password</label>
-               <input class="col-sm-6" type='password' name='password_confirmation' id='password_confirmation'>
-            </div>
-            <div class="form-group">
-               <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-info btn-lg">Register</button>
+               {!! csrf_field() !!}
+               <div class="form-group form-group-md">
+                  <label class="col-sm-4 control-label" for='name'>Name</label>
+                  <div class="col-sm-8">
+                     <input  class="form-control" type='text' name='name' id='name' value='{{ old('name') }}'>
+                  </div>
                </div>
-            </div>
+               <div class="form-group form-group-md">
+                  <label class="col-sm-4 control-label" for='register_email'>Email</label>
+                  <div class="col-sm-8">
+                     <input  class="form-control" type='text' name='email' id='register_email'>
+                  </div>
+               </div>
+               <div class="form-group form-group-md">
+                  <label class="col-sm-4 control-label" for='register_password'>Password</label>
+                  <div class="col-sm-8">
+                     <input  class="form-control" type='password' name='password' id='register_password'>
+                  </div>
+               </div>
+               <div class="form-group form-group-md">
+                  <label class="col-sm-4 control-label" for='confirm_password'>Confirm Password</label>
+                  <div class="col-sm-8">
+                     <input  class="form-control" type='password' name='confirm_password' id='confirm_password'>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                     <button type="submit" class="btn btn-info btn-lg">Register</button>
+                  </div>
+               </div>
          </form>
       </div>
    </div>

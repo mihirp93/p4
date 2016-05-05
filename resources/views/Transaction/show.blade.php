@@ -1,4 +1,4 @@
-@extends('layouts.profile')
+@extends('layouts.master_profile')
 @section('content')
 <div class='profile_content'>
    @if(count($transactions) > 1)
