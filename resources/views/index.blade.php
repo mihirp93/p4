@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
-   <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+   <link href='/css/styles.css' rel='stylesheet' type='text/css'/>
 @stop
 
 @section('content')
@@ -84,7 +84,7 @@
                   </div>
                </div>
                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
+                  <div class="col-md-offset-1 col-sm-10">
                      <button type="submit" class="btn btn-info btn-lg">Register</button>
                   </div>
                </div>

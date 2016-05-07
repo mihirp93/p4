@@ -4,10 +4,9 @@
   <head>
     <title>@yield('title','Finance Manager')</title>
     <meta charset='utf-8'>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     {{-- To yield any page specific CSS files or anything else in the head element --}}
     @yield('head')
-
   </head>
   <body>
     @yield('body_content')

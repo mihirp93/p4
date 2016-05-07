@@ -63,27 +63,36 @@ Route::get('/debug', function() {
 });
 
 
+#####################################################################
 Route::get('/', ['middleware' => 'guest', function() {
+#####################################################################
+# Responsds to GET / request.
      return view('index');
 }]);
 
-# ------------------------------------
-# Authentication
-# ------------------------------------
+#####################################################################
+# Authentication Routes
+#####################################################################
 Route::post('/login', 'Auth\AuthController@postLogin');
 Route::post('/register', 'Auth\AuthController@postRegister');
-# Process logout
 Route::get('/logout', 'Auth\AuthController@logout');
 
-# Restricting multiple routes with Middleware
+#####################################################################
+# Restricting routes to only authenticated users with Middleware
+#####################################################################
 Route::group(['middleware' => 'auth'], function() {
+   # Route for the user's profile page.
    Route::get('/profile', 'TransactionController@getProfile');
+
+   # Routes for adding a transaction
    Route::get('/add', 'TransactionController@getAdd');
    Route::post('/add', 'TransactionController@postAdd');
-   Route::get('/edit/{id?}', function() {
-     echo "Edit page route(GET)";
-   });
-   Route::post('/edit', function() {
-     echo "Edit page route(POST)";
-   });
+
+   # Routes for editing  a transaction
+   Route::get('/edit/{id?}', 'TransactionController@getEdit');
+   Route::post('/edit', 'TransactionController@postEdit');
+
+   # Routes for deleting a transaction
+   Route::get('/confirm-delete/{id?}', 'TransactionController@getConfirmDelete');
+   Route::get('/delete/{id?}', 'TransactionController@getDelete');
 });

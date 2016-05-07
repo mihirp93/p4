@@ -5,17 +5,17 @@
     <title>@yield('title','Profile')</title>
     <meta charset='utf-8'>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/profile.css" rel="stylesheet" type="text/css"/>
     @yield('head')
   </head>
   <body>
      <div class='profile_sidebar'>
-      <img src='http://www.fashatude.com/static/fashatude/img/user_icon.png' alt='user image' width='300' height='300'/>
+      <img src='/images/user_icon.png' alt='user image' width='300' height='300'/>
       <h4>{{ $user->name }}</h4>
       <h4>{{ $user->email }}</h4>
       <ul class="nav nav-sidebar">
-       <li><a href="#">See All Transactions</a></li>
-       <li><a href="#">Add Transaction</a></li>
+       <li><a href="/profile">See All Transactions</a></li>
+       <li><a href="/add">Add Transaction</a></li>
       </ul>
    </div>
     <div class="container">
@@ -37,7 +37,12 @@
           </div>
         </div>
       </nav>
-      @yield('content')
+      <div class='profile_content'>
+         @if(Session::get('message') != null)
+              <div class = "alert alert-info fade in flash_message">{{ Session::get('message') }}</div>
+         @endif
+         @yield('content')
+      </div>
    </div>
   </body>
 </html>

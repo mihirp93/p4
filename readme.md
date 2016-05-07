@@ -1,27 +1,23 @@
-# Laravel PHP Framework
+# Personal Finance Tracker
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL
+<http://p4.mihirp.me/>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Description
+This application will allow users to log and track their financial transactions.
+Transactional data entered by the users will be stored and then be used to report
+activity via line and bar charts that will appear on the user's profile page.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Demo
+coming soon...
 
-## Official Documentation
+## Details for teaching team
+No login required.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Outside resources
+* Laravel framework : <https://github.com/laravel/framework>
+* Bootstrap : <http://getbootstrap.com/>
+* Bootstrap theme : <https://bootswatch.com/>
+* User Image icon : <http://www.fashatude.com/static/fashatude/img/user_icon.png>
+* Edit icon : <http://www.myiconfinder.com/uploads/iconsets/256-256-cdffa362bcace7467abb9fae06fd20d6-pencil.png>
+* Delete icon : <https://cdn1.iconfinder.com/data/icons/ui-icons-2/512/wrong-01-512.png>
