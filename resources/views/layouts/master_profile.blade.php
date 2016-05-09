@@ -4,7 +4,7 @@
   <head>
     <title>@yield('title','Profile')</title>
     <meta charset='utf-8'>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/profile.css" rel="stylesheet" type="text/css"/>
     @yield('head')
   </head>
@@ -14,8 +14,9 @@
       <h4>{{ $user->name }}</h4>
       <h4>{{ $user->email }}</h4>
       <ul class="nav nav-sidebar">
-       <li><a href="/profile">See All Transactions</a></li>
+       <li><a href="/profile">Show all transactions</a></li>
        <li><a href="/add">Add Transaction</a></li>
+       <li><a href="/search">Search</a></li>
       </ul>
    </div>
     <div class="container">

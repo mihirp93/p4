@@ -6,11 +6,11 @@
 
 @section('content')
 <div class="jumbotron">
-   <h1>Personal Finance Manager</h1>
+   <h1>Personal Finance Tracker</h1>
    <p class="lead">Do you ever feel overwhelmed in keeping track of your personal finances?
-      Be honest(for your sake). In today's day and age, money is simply too valuable
-      for us and keeping track of it is no longer an option. Therefore, I created this web app
-      to help me manage and track my finances(along with others things as you'll soon see).
+      Be honest. In today's day and age, money is simply too valuable for us and keeping track
+      of it is no longer an option. Therefore, I created this web app to help manage and
+       track finances(along with others things as you'll soon see).
    </p>
    <div class="row">
       @if(count($errors) > 0)

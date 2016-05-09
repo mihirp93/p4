@@ -95,4 +95,8 @@ Route::group(['middleware' => 'auth'], function() {
    # Routes for deleting a transaction
    Route::get('/confirm-delete/{id?}', 'TransactionController@getConfirmDelete');
    Route::get('/delete/{id?}', 'TransactionController@getDelete');
+
+   # Routes for searching transactions
+   Route::get('/search', 'TransactionController@getSearch');
+   Route::post('/search', 'TransactionController@postSearch');
 });

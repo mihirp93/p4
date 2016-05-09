@@ -18,7 +18,7 @@ Profile
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Personal Finance Manager</a>
+      <a class="navbar-brand" href="#">Personal Finance Tracker</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -31,11 +31,11 @@ Profile
 
 @section('body_content')
    <div class='profile_sidebar'>
-      <img src='http://www.fashatude.com/static/fashatude/img/user_icon.png' alt='user image' width='300' height='300'/>
+      <img src='images/user_icon.png' alt='user image' width='300' height='300'/>
       <h4>{{ $user->name }}</h4>
       <h4>{{ $user->email }}</h4>
       <ul class="nav nav-sidebar">
-       <li><a href="#">See All Transactions</a></li>
+       <li><a href="#">Show transactions</a></li>
        <li><a href="#">Add Transaction</a></li>
       </ul>
    </div>
