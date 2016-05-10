@@ -27,6 +27,8 @@ Route::get('/show-login-status', function() {
 
 });
 
+Route::get('/practice', 'TransactionController@getPractice');
+
 Route::get('/debug', function() {
 
     echo '<pre>';

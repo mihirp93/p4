@@ -7,6 +7,26 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller {
 
+
+  public function getPractice () {
+
+     $finances = \Lava::DataTable();
+     $finances->addDateColumn('Year')
+        ->addNumberColumn('Deposits')
+        ->addNumberColumn('Withdrawals')
+        ->setDateTimeFormat('Y')
+        ->addRow(['2004', 1000, 400])
+        ->addRow(['2005', 1170, 460]);
+
+      \Lava::ColumnChart('Finances', $finances, [
+        'title' => 'Company Performance',
+        'titleTextStyle' => [
+            'color'    => '#eb6b2c',
+            'fontSize' => 14
+        ]
+     ]);
+       return view('practice');
+ }
   ########################################################################################
   public function getProfile() {
   ########################################################################################
@@ -16,10 +36,34 @@ class TransactionController extends Controller {
      # get the current user
      $user = \Auth::user();
 
-     # get all transactions for the current user
-     $transactions = \App\Transaction::where('user_id','=',$user->id)->get();
+     # set up the SQL query for the transaction type bar chart.
+     $sel_str = "select count(*) cnt, types.trans_type ";
+     $sel_str = $sel_str." from transactions, types ";
+     $sel_str = $sel_str." where transactions.type_id = types.id and transactions.user_id = $user->id ";
+     $sel_str = $sel_str." group by type_id";
+     $types = \DB::select($sel_str);
+     $reasons = \Lava::DataTable();
+     $reasons->addStringColumn('Types')->addNumberColumn('Percent');
+     foreach ($types as $type ) {
+        $reasons->addRow([$type->trans_type, $type->cnt]);
+     }
+      \Lava::PieChart('Types', $reasons, [
+          'title'  => 'Transaction Types',
+          'is3D'   => true,
+          'slices' => [
+              ['offset' => 0.2],
+              ['offset' => 0.25],
+              ['offset' => 0.3]
+          ],
+          'width' => 1000,
+          'height' => 500,
+          'fontSize' => 20,
+      ]);
 
-     # invoke the view with the retrieved data.
+      # get all transactions for the current user
+      $transactions = \App\Transaction::where('user_id','=',$user->id)->get();
+
+     # invoke the view with the retrieved data
      return view('transaction.show')->with('user',$user)
                                     ->with('transactions',$transactions);
   }

@@ -1,6 +1,7 @@
 @extends('layouts.master_profile')
 @section('content')
    @if(count($transactions) >= 1)
+      <div id="poll_div"><?= Lava::render('PieChart', 'Types', 'poll_div') ?></div>
       <h2 class="sub-header">All Transactions</h2>
       <div class="table-responsive">
        <table class="table table-bordered">
@@ -32,5 +33,8 @@
         </tbody>
         </table>
       </div>
+   @else
+      <h1>Welcome</h1>
+      <p><a href='/add'>Click here to get started</a></p>
    @endif
 @stop
