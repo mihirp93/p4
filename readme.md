@@ -11,8 +11,12 @@ activity via line and bar charts that will appear on the user's profile page.
 ## Demo
 coming soon...
 
-## Details for teaching team
-No login required.
+## Login Details for teaching team
+Email: jill@harvard.edu
+Password: helloworld
+
+Email: jamal@harvard.edu
+Password: helloworld
 
 ## Outside resources
 * Laravel framework : <https://github.com/laravel/framework>

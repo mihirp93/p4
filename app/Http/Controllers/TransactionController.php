@@ -7,26 +7,6 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller {
 
-
-  public function getPractice () {
-
-     $finances = \Lava::DataTable();
-     $finances->addDateColumn('Year')
-        ->addNumberColumn('Deposits')
-        ->addNumberColumn('Withdrawals')
-        ->setDateTimeFormat('Y')
-        ->addRow(['2004', 1000, 400])
-        ->addRow(['2005', 1170, 460]);
-
-      \Lava::ColumnChart('Finances', $finances, [
-        'title' => 'Company Performance',
-        'titleTextStyle' => [
-            'color'    => '#eb6b2c',
-            'fontSize' => 14
-        ]
-     ]);
-       return view('practice');
- }
   ########################################################################################
   public function getProfile() {
   ########################################################################################
