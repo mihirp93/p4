@@ -16,7 +16,6 @@ No login required.
 
 ## Outside resources
 * Laravel framework : <https://github.com/laravel/framework>
-* Lavacharts : <http://lavacharts.com/>
 * Bootstrap : <http://getbootstrap.com/>
 * Bootstrap theme : <https://bootswatch.com/>
 * User Image icon : <http://www.fashatude.com/static/fashatude/img/user_icon.png>

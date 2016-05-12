@@ -1,9 +1,6 @@
 @extends('layouts.master_profile')
 @section('content')
    @if(count($transactions) >= 1)
-       @if(count($transactions) > 5)
-         <div id="pie_div"><?= Lava::render('PieChart', 'Types', 'pie_div') ?></div>
-       @endif
       <h2 class="sub-header">All Transactions</h2>
       <div class="table-responsive">
        <table class="table table-bordered">
@@ -35,9 +32,6 @@
         </tbody>
         </table>
       </div>
-      @if(count($transactions) >= 5)
-         <div id="bar_div"><?= Lava::render('BarChart', 'NumberOfTrans', 'bar_div') ?></div>
-      @endif
    @else
       <h1 class="welcome_header">Welcome to your profile page</h1>
       <p class="lead profile_paragraph">You will see all of your posted transactions here! <a href='/add'>Click here to add transactions.</a></p>

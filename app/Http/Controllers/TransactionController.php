@@ -36,56 +36,6 @@ class TransactionController extends Controller {
      # get the current user
      $user = \Auth::user();
 
-     #######################################################################################################
-     # transaction type bar chart.
-     #######################################################################################################
-     $sel_str = "select count(*) cnt, types.trans_type ";
-     $sel_str = $sel_str." from transactions, types ";
-     $sel_str = $sel_str." where transactions.type_id = types.id and transactions.user_id = $user->id ";
-     $sel_str = $sel_str." group by type_id";
-     $types = \DB::select($sel_str);
-     $reasons = \Lava::DataTable();
-     $reasons->addStringColumn('Types')->addNumberColumn('Percent');
-     foreach ($types as $type ) {
-        $reasons->addRow([$type->trans_type, $type->cnt]);
-     }
-     \Lava::PieChart('Types', $reasons, [
-          'title'  => 'Transaction Types',
-          'is3D'   => true,
-          'slices' => [
-              ['offset' => 0.2],
-              ['offset' => 0.25],
-              ['offset' => 0.3]
-          ],
-          'width' => 1400,
-          'height' => 400,
-          'fontSize' => 20,
-      ]);
-
-      #######################################################################################################
-      # number of transactions line chart
-      #######################################################################################################
-      $num_of_trans  = \Lava::DataTable();
-      $num_of_trans->addStringColumn('Date')
-            ->addNumberColumn('Transactions');
-
-      $sel_str = "SELECT trans_date, count(*) cnt ";
-      $sel_str = $sel_str." from transactions ";
-      $sel_str = $sel_str." where transactions.user_id = $user->id  group by 1 order by 1 desc limit 7";
-      $breakdowns = \DB::select($sel_str);
-
-      foreach($breakdowns as $breakdown) {
-         $num_of_trans->addRow([$breakdown->trans_date,  $breakdown->cnt]);
-      }
-
-      \Lava::BarChart('NumberOfTrans', $num_of_trans,[
-           'title'  => 'Transactions in the last 7 days',
-           'width' => 1000,
-           'height' => 200,
-           'fontSize' => 10,
-      ]);
-
-
      # get all transactions for the current user
      $transactions = \App\Transaction::where('user_id','=',$user->id)->get();
 
