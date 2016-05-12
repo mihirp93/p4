@@ -11,8 +11,8 @@
               <th>Description</th>
               <th>Amount</th>
               <th>Type</th>
-              <th><img src="/images/edit_icon.png" width="20" height="20"></th>
-              <th><img src="/images/delete_icon.png" width="20" height="20"></th>
+              <th><img src="/images/edit_icon.png" width="20" height="20" alt="edit"></th>
+              <th><img src="/images/delete_icon.png" width="20" height="20" alt="delete"></th>
            </tr>
           </thead>
           <tbody>

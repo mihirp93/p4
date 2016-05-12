@@ -6,7 +6,7 @@
    <p class='lead confirm_message'>
       Are you sure you want to delete this transaction?
       <br>
-      <a href='/delete/{{ $transaction->id }}'>Yes<a>
+      <a href='/delete/{{ $transaction->id }}'>Yes</a>
       <br>
       <a href='/profile'>No</a>
    </p>

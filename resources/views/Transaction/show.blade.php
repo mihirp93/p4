@@ -1,7 +1,9 @@
 @extends('layouts.master_profile')
 @section('content')
    @if(count($transactions) >= 1)
-      <div id="pie_div"><?= Lava::render('PieChart', 'Types', 'pie_div') ?></div>
+       @if(count($transactions) > 5)
+         <div id="pie_div"><?= Lava::render('PieChart', 'Types', 'pie_div') ?></div>
+       @endif
       <h2 class="sub-header">All Transactions</h2>
       <div class="table-responsive">
        <table class="table table-bordered">
@@ -12,8 +14,8 @@
               <th>Description</th>
               <th>Amount</th>
               <th>Type</th>
-              <th><img src="/images/edit_icon.png" width="20" height="20"></th>
-              <th><img src="/images/delete_icon.png" width="20" height="20"></th>
+              <th><img src="/images/edit_icon.png" width="20" height="20" alt="edit"></th>
+              <th><img src="/images/delete_icon.png" width="20" height="20" alt="delete"></th>
            </tr>
           </thead>
           <tbody>
@@ -37,7 +39,7 @@
          <div id="bar_div"><?= Lava::render('BarChart', 'NumberOfTrans', 'bar_div') ?></div>
       @endif
    @else
-      <h1 class="welcome_header">Welcome</h1>
-      <p class="lead profile_paragraph">This is your profile page. You will see all of your posted transactions here! <a href='/add'>Click to get started.</a></p>
+      <h1 class="welcome_header">Welcome to your profile page</h1>
+      <p class="lead profile_paragraph">You will see all of your posted transactions here! <a href='/add'>Click here to add transactions.</a></p>
    @endif
 @stop
