@@ -5,7 +5,7 @@
 
 ## Description
 This application will allow users to log and maintain their financial transactions.
-The transactional data entered by the user will be then be served to the user
+The transactional data entered by the user will then be served to the user
 for analytical and planning purposes.
 
 ## Demo
