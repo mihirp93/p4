@@ -90,7 +90,7 @@ class TransactionController extends Controller {
      $transactions = \App\Transaction::where('user_id','=',$user->id)->get();
 
      # invoke the view with the retrieved data
-     return view('transaction.show')->with('user',$user)
+     return view('Transaction.show')->with('user',$user)
                                     ->with('transactions',$transactions);
   }
 
@@ -107,7 +107,7 @@ class TransactionController extends Controller {
       $types_for_dropdown = \App\Type::typesForDropdown();
 
       # invoke the view with the retrieved data.
-      return view('transaction.add')->with('user',$user)
+      return view('Transaction.add')->with('user',$user)
                                     ->with('types_for_dropdown',$types_for_dropdown);
   }
   # getAdd()
@@ -167,7 +167,7 @@ class TransactionController extends Controller {
       }
 
       # invoke the edit data with the retrieved data.
-      return view('transaction.edit')->with('user',$user)
+      return view('Transaction.edit')->with('user',$user)
                                      ->with('types_for_dropdown',$types_for_dropdown)
                                      ->with('transaction',$transaction);
 
@@ -224,7 +224,7 @@ class TransactionController extends Controller {
       }
 
       # return the view with the retrieved data
-      return view('transaction.delete')->with('user',$user)
+      return view('Transaction.delete')->with('user',$user)
                                        ->with('transaction', $transaction);
   }
   # getConfirmDelete()
@@ -232,7 +232,7 @@ class TransactionController extends Controller {
   ########################################################################################
   public function getDelete($id = null) {
   ########################################################################################
-  # The purpose of this function is to delete the desired transaction.
+  # The purpose of this function is to delete the desired Transaction.
 
         # get the the transactional data.
         $transaction = \App\Transaction::find($id);
@@ -257,7 +257,7 @@ class TransactionController extends Controller {
   public function getSearch() {
   ########################################################################################
   # The purpose of this function is to retrieve user's criteria, which will be used
-  # to search for transaction.
+  # to search for Transaction.
 
       # get the current user
       $user = \Auth::user();
@@ -266,7 +266,7 @@ class TransactionController extends Controller {
       $types_for_dropdown = \App\Type::typesForDropdown();
 
       # invoke the view with the retrieved data.
-      return view('transaction.search')->with('user',$user)
+      return view('Transaction.search')->with('user',$user)
                                        ->with('types_for_dropdown',$types_for_dropdown);
   }
   # getSearch()
@@ -349,7 +349,7 @@ class TransactionController extends Controller {
       }
 
        # invoke the view with the retrieved data.
-       return view('transaction.search_results')->with('user',$user)
+       return view('Transaction.search_results')->with('user',$user)
                                                 ->with('types_for_dropdown',$types_for_dropdown)
                                                 ->with('transactions', $transactions);
   }
