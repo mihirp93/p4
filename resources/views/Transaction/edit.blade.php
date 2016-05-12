@@ -14,7 +14,7 @@
          <label for="amount">Amount</label>
          <input type="text" name="amount" id='amount' value='{{ $transaction->trans_amount }}'/>
          <div class='field_error'>{{ $errors->first('amount') }}</div>
-         <label for="date">Date</label>
+         <label for="date">Date(YYYY-MM-DD)</label>
          <input type="date" name="date" id='date' max='{{ date('Y-m-d') }}' value='{{ $transaction->trans_date }}'/>
          <div class='field_error'>{{ $errors->first('date') }}</div>
          <label for="type">Type</label>

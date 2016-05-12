@@ -13,7 +13,7 @@
          <label for="amount">Amount</label>
          <input type="text" name="amount" id='amount' value='{{ old('amount') }}'/>
          <div class='field_error'>{{ $errors->first('amount') }}</div>
-         <label for="date">Date</label>
+         <label for="date">Date(YYYY-MM-DD)</label>
          <input
             type="date"
             name="date"
