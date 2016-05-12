@@ -32,7 +32,7 @@
                <div class="form-group form-group-lg">
                   <label class="col-sm-3 control-label" for='email'>Email</label>
                   <div class="col-sm-8">
-                     <input  class="form-control" type='text' name='email' id='email' value='{{ old('email') }}'>
+                     <input  class="form-control" type='text' name='email' id='email'>
                   </div>
                </div>
                <div class="form-group form-group-lg">
@@ -78,9 +78,9 @@
                   </div>
                </div>
                <div class="form-group form-group-md">
-                  <label class="col-sm-4 control-label" for='confirm_password'>Confirm Password</label>
+                  <label class="col-sm-4 control-label" for='password_confirmation'>Confirm Password</label>
                   <div class="col-sm-8">
-                     <input  class="form-control" type='password' name='confirm_password' id='confirm_password'>
+                     <input type="password" class="form-control" name="password_confirmation" id="password_confirmation">
                   </div>
                </div>
                <div class="form-group">

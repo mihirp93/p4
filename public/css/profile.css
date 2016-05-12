@@ -25,7 +25,7 @@ label {
 input[type=text], input[type=date], select {
     height:50px;
     width:400px;
-    font-size:15px;
+    font-size:20px;
     margin-left:200px;
 }
 
@@ -53,4 +53,14 @@ h2 {
 .confirm_message {
    text-align:center;
    padding:5px;
+}
+
+.profile_paragraph {
+   text-align:center;
+}
+
+.welcome_header {
+   text-align: center;
+   margin-top: 20%;
+   font-size: 50px;
 }

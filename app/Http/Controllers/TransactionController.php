@@ -36,7 +36,9 @@ class TransactionController extends Controller {
      # get the current user
      $user = \Auth::user();
 
-     # set up the SQL query for the transaction type bar chart.
+     #######################################################################################################
+     # transaction type bar chart.
+     #######################################################################################################
      $sel_str = "select count(*) cnt, types.trans_type ";
      $sel_str = $sel_str." from transactions, types ";
      $sel_str = $sel_str." where transactions.type_id = types.id and transactions.user_id = $user->id ";
@@ -47,7 +49,7 @@ class TransactionController extends Controller {
      foreach ($types as $type ) {
         $reasons->addRow([$type->trans_type, $type->cnt]);
      }
-      \Lava::PieChart('Types', $reasons, [
+     \Lava::PieChart('Types', $reasons, [
           'title'  => 'Transaction Types',
           'is3D'   => true,
           'slices' => [
@@ -55,13 +57,37 @@ class TransactionController extends Controller {
               ['offset' => 0.25],
               ['offset' => 0.3]
           ],
-          'width' => 1000,
-          'height' => 500,
+          'width' => 1400,
+          'height' => 400,
           'fontSize' => 20,
       ]);
 
-      # get all transactions for the current user
-      $transactions = \App\Transaction::where('user_id','=',$user->id)->get();
+      #######################################################################################################
+      # number of transactions line chart
+      #######################################################################################################
+      $num_of_trans  = \Lava::DataTable();
+      $num_of_trans->addStringColumn('Date')
+            ->addNumberColumn('Transactions');
+
+      $sel_str = "SELECT trans_date, count(*) cnt ";
+      $sel_str = $sel_str." from transactions ";
+      $sel_str = $sel_str." where transactions.user_id = $user->id  group by 1 order by 1 desc limit 7";
+      $breakdowns = \DB::select($sel_str);
+
+      foreach($breakdowns as $breakdown) {
+         $num_of_trans->addRow([$breakdown->trans_date,  $breakdown->cnt]);
+      }
+
+      \Lava::BarChart('NumberOfTrans', $num_of_trans,[
+           'title'  => 'Transactions in the last 7 days',
+           'width' => 1000,
+           'height' => 200,
+           'fontSize' => 10,
+      ]);
+
+
+     # get all transactions for the current user
+     $transactions = \App\Transaction::where('user_id','=',$user->id)->get();
 
      # invoke the view with the retrieved data
      return view('transaction.show')->with('user',$user)
@@ -317,8 +343,6 @@ class TransactionController extends Controller {
 
           # criteria for the current user
           $where_str = $where_str."and transactions.user_id = $user->id";
-
-          dump($where_str);
 
           # execute the dynamically prepared SQL statement
           $transactions = \DB::select("select $sel_str from transactions, types where $where_str");

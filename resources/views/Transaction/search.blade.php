@@ -1,10 +1,10 @@
 @extends('layouts.master_profile')
-
 @section('content')
 <div class='profile_form'>
    <div class="jumbotron">
      <h2 class="sub-header">Search</h2>
      <hr>
+     <p class="profile_paragraph">Please enter one or more criteria to search for transactions.</p>
      <form class="form-horizontal" method="POST" action="/search">
          {{ csrf_field() }}
          <label for="description">Description</label>

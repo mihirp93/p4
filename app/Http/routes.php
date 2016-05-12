@@ -102,3 +102,7 @@ Route::group(['middleware' => 'auth'], function() {
    Route::get('/search', 'TransactionController@getSearch');
    Route::post('/search', 'TransactionController@postSearch');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

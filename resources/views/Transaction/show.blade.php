@@ -1,7 +1,7 @@
 @extends('layouts.master_profile')
 @section('content')
    @if(count($transactions) >= 1)
-      <div id="poll_div"><?= Lava::render('PieChart', 'Types', 'poll_div') ?></div>
+      <div id="pie_div"><?= Lava::render('PieChart', 'Types', 'pie_div') ?></div>
       <h2 class="sub-header">All Transactions</h2>
       <div class="table-responsive">
        <table class="table table-bordered">
@@ -26,15 +26,18 @@
                  <td>{{ $transaction->trans_amount }}</td>
                  <td>{{ $transaction->type->trans_type }}</td>
                  <td><a href='/edit/{{ $transaction->id }}'>Edit</a></td>
-                 <td><a href='/delete/{{ $transaction->id }}'>Delete</a></td>
+                 <td><a href='/confirm-delete/{{ $transaction->id }}'>Delete</a></td>
               </tr>
               <?php $i = $i + 1 ?>
            @endforeach
         </tbody>
         </table>
       </div>
+      @if(count($transactions) >= 5)
+         <div id="bar_div"><?= Lava::render('BarChart', 'NumberOfTrans', 'bar_div') ?></div>
+      @endif
    @else
-      <h1>Welcome</h1>
-      <p><a href='/add'>Click here to get started</a></p>
+      <h1 class="welcome_header">Welcome</h1>
+      <p class="lead profile_paragraph">This is your profile page. You will see all of your posted transactions here! <a href='/add'>Click to get started.</a></p>
    @endif
 @stop
