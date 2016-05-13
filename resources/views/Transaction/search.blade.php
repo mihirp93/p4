@@ -13,8 +13,23 @@
          <label for="amount">Amount</label>
          <input type="text" name="amount" id='amount' value='{{ old('amount') }}'/>
          <div class='field_error'>{{ $errors->first('amount') }}</div>
-         <label for="date">Date(YYYY-MM-DD)</label>
-         <input type="date" name="date" id='date' max='{{ date('Y-m-d') }}' value='{{ old('date') }}'/>
+         <label for="date">Date (YYYY-MM-DD)</label>
+         <input
+            type="date"
+            name="date"
+            id='date'
+            max='{{ date('Y-m-d') }}'
+            <?php
+              $date_val = old('date');
+              if ($date_val) {
+               # do nothing
+              }
+              else {
+               $date_val = date('Y-m-d');
+              }
+            ?>
+            value={{ $date_val }}
+          />
          <div class='field_error'>{{ $errors->first('date') }}</div>
          <label for="type">Type</label>
          <select name='type' id='type'>

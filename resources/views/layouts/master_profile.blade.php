@@ -5,7 +5,9 @@
     <title>@yield('title','Profile')</title>
     <meta charset='utf-8'>
     <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap/flatly_bootstrap_min.css" rel="stylesheet" type="text/css"/>
     <link href="/css/profile.css" rel="stylesheet" type="text/css"/>
+
     @yield('head')
   </head>
   <body>
@@ -30,7 +32,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Personal Finance Tracker</a>
+            <a class="navbar-brand" href="/profile">Personal Finance Tracker</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
